@@ -83,7 +83,7 @@ class OrderPage(BasePage):
 
     @allure.step('Проверяем видимость кнопки "Проверить статус"')
     def check_visibility_of_button_status(self):
-        self.check_element_is_visable(OrderPageLocators.BUTTON_STATUS)
+        self.find_my_element(OrderPageLocators.BUTTON_STATUS)
 
     @allure.step('Получаем текст кнопки "Проверить статус"')
     def text_in_button_status(self):

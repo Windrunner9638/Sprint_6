@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from test_data import Urls
 
 
 class BasePage:
@@ -28,16 +29,11 @@ class BasePage:
         return Wait(self.driver, timeout).until(
             EC.visibility_of_element_located(locator))
 
-    # Подождать пока элемент появится на странице
-    def check_element_is_visable(self, locator):
-        WebDriverWait(self.driver, 10).until(
-            expected_conditions.visibility_of_element_located(locator))
-
     @allure.step('Смена страницы')
     def switch_pages(self):
         WebDriverWait(self.driver, 10).until(expected_conditions.number_of_windows_to_be(2))
         self.driver.switch_to.window(self.driver.window_handles[1])
-        WebDriverWait(self.driver, 10).until(expected_conditions.url_contains('https://dzen.ru/'))
+        WebDriverWait(self.driver, 10).until(expected_conditions.url_contains(Urls.dzen_url))
 
     @allure.step('Получение текущего url')
     def get_current_url(self):

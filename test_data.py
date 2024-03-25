@@ -4,6 +4,7 @@ from locators.main_page_locators import MainPageLocators
 class Urls:
     # Главная страница
     url_main = 'https://qa-scooter.praktikum-services.ru/'
+    dzen_url = 'https://dzen.ru/'
 
 
 class Answers:

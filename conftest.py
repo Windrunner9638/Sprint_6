@@ -3,6 +3,7 @@ from selenium.webdriver.firefox import webdriver
 from selenium import webdriver
 import test_data
 from locators.main_page_locators import MainPageLocators
+from pages.base_page import BasePage
 
 
 @pytest.fixture(scope='function')
@@ -18,4 +19,5 @@ def driver():
 
 @pytest.fixture
 def click_cookie(driver):
-    driver.find_element(*MainPageLocators.COOKIE_LOCATOR).click()
+    base_page = BasePage(driver)
+    base_page.click_on_element(*MainPageLocators.COOKIE_LOCATOR)
