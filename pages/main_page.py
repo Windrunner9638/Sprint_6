@@ -33,7 +33,11 @@ class MainPage(BasePage):
     def click_logo_scooter(self):
         self.click_on_element(MainPageLocators.LOGO_SCOOTER)
 
-    @allure.step('Проверяем кликабельность и кликаем по кнопке заказа из хедера"')
+    @allure.step('Проверяем кликабельность и кликаем по кнопке заказа из хедера')
     def check_and_click_order_header(self):
         self.check_button_order_in_header_is_clickable()
         self.click_button_order_header()
+
+    @allure.step('Принимаем куки')
+    def accept_cookie(self):
+        self.click_on_element(*MainPageLocators.COOKIE_LOCATOR)

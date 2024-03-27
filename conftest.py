@@ -2,8 +2,7 @@ import pytest
 from selenium.webdriver.firefox import webdriver
 from selenium import webdriver
 import test_data
-from locators.main_page_locators import MainPageLocators
-from pages.base_page import BasePage
+from pages.main_page import MainPage
 
 
 @pytest.fixture(scope='function')
@@ -19,5 +18,5 @@ def driver():
 
 @pytest.fixture
 def click_cookie(driver):
-    base_page = BasePage(driver)
-    base_page.click_on_element(*MainPageLocators.COOKIE_LOCATOR)
+    main_page = MainPage(driver)
+    main_page.accept_cookie()
